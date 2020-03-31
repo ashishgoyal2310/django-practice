@@ -1,12 +1,11 @@
 from django.shortcuts import render
 from django.contrib.auth.models import User
 from django.shortcuts import redirect
-
+from django.contrib.auth import authenticate, login, logout
 
 # Create your views here.
 
 def register(request):
-
     print('Post result',request.POST)
     print('Get result' , request.GET)
 
@@ -32,7 +31,25 @@ def register(request):
             
         else:
             print("*******  Password Does not matches *********** ")
-            return render(request, 'register.html', {'passerror':" Password incorrect !!", 'message':"Please regsiter yourself !!"})
-        return redirect('/')
+            return render(request, 'register.html', {'passerror':" Password incorrect !!", 'message':"Please Register yourself !!"})
+        return redirect('/accounts/login/')
     else:
-        return render(request, 'register.html', {'message':"Please regsiter yourself !!"})
+        return render(request, 'register.html', {'message':"Please Register yourself !!"})
+
+
+def login_view(request):
+    if request.method == 'POST':
+        username= request.POST['username']
+        password = request.POST['password']
+        user = authenticate(request, username=username, password=password)
+        if user is not None:
+            login(request, user)
+            return redirect('/')
+        else:
+            return render(request, 'login.html', {'muser':"Invalid credentials  !!"})
+    else:
+        return render(request, 'login.html')
+
+def logout_view(request):
+    logout(request)
+    return redirect('/')

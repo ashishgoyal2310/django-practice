@@ -6,7 +6,7 @@
     <title>Regsitration</title>
 </head>
 <body bgcolor='cyan'>
-    <h1>{{ message }}</h1>
+    <h2>{{ message }}</h2>
     <form action="" method="post">
         {% csrf_token %}
         <input type='text' name="first_name" placeholder="Firstn"><br>
@@ -15,8 +15,8 @@
         <input type='email' name="email" placeholder="email">{{emailerror}}<br>
         <input type='password' name="password1" placeholder="password">{{ passerror }}<br>
         <input type='password' name="password2" placeholder="confirm password"><br>
-        <input type="Submit">
+        <input type="Submit"> <button><a href="/">Home</a></button>
 
     </form>
 </body>
-</html>
+</html

@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>TeerHome</title>
+    <style>
+        table, th, td {
+          border: 1px solid black;
+          border-collapse: collapse;
+        }
+        th, td {
+          padding: 5px;
+          text-align: center;    
+        }
+        </style>        
+</head>
+<body>
+    <h1>Teer Home HTML Page :: {{name}} {{last}}</h1>
+    teer_all -- {{ teer_all }}
+    <br>
+    teer_dct -- {{ teer_dct }}
+    <br>
+    teer_dct_dot_JTR -- {{ teer_dct.JTR }}
+    <br>
+    {% for tall in teer_all %}
+      <table style="width:100%">
+          <tr>
+            <th colspan="2">{{tall.get_title_display}}</th>
+          </tr>
+          <tr>
+            <td>{{tall.param1_title}}({{tall.param1_time}})</td>
+            <td>{{tall.param2_title}}({{tall.param2_time}})</td>
+          </tr>
+          <tr>
+            <td>{{tall.param1_data}}</td>
+            <td>{{tall.param2_data}}</td>
+          </tr> 
+        </table><br>
+    {% endfor %} 
+</body>
+</html>

@@ -23,5 +23,6 @@ urlpatterns = [
     path('polls/', include("polls.urls")),
     path('', include("travello.urls")),
     path('accounts/', include("accounts.urls")),
+    path('teerresults/', include("teerresults.urls")),
 
 ] + static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)

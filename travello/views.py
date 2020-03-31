@@ -26,6 +26,7 @@ def index(request):
     # dest3.image = 'destination_3.jpg'
     # dest3.offer = False
 
+    # dests = [dest1, dest2, dest3]
     dests = Destination.objects.all()
     
     return render(request, 'index.html', {'dests':dests})

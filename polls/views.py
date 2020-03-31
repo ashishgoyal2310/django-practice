@@ -17,3 +17,6 @@ def add(request):
 	result = v1 + v2
 	#result = 0
 	return render(request, 'result.html', {'resu': result})
+
+def practice(request):
+	return render(request, 'practice.html')
