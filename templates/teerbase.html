@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>{% block title %}base{% endblock %}</title>
+    <style>
+        body {
+          margin: 0;
+          font-family: Arial, Helvetica, sans-serif;
+        }
+        
+        .topnav {
+          overflow: hidden;
+          background-color: Blue;
+          padding: 10px;
+        }
+        
+        .topnav a {
+          color: #f2f2f2;
+          text-align: center;
+          padding: 14px 16px;
+          text-decoration: none;
+          font-size: 17px;
+        }
+        
+        .topnav a:hover {
+          background-color:#ddd;
+          color: black;
+        }
+        
+        .topnav a.active {
+          background-color: Black;
+          color: white;
+        }
+        </style>
+    
+        <style>
+          table, th, td {
+            border: 1px solid black;
+            border-collapse: collapse;
+          }
+          th, td {
+            padding: 5px;
+            text-align: center;    
+          }
+      </style>
+
+      <style>
+        div.footer {
+          margin-top: 10px;
+        }
+        div.footer > div {margin:0.14em 0em 0em 0.57em; width: 24%; float: left; min-height: 50px;}
+        .footer_link {
+          text-decoration: none;
+          color: red;
+          font-size: 25px;  
+          text-align: justify;      
+        }
+      </style>
+        
+    {% block headcontent %}
+    {% endblock %}
+</head>
+<body>
+    <div class="topnav" align="center">
+      <a href="/teerresults/">Home</a>
+      <a href="/teerresults/commonnumber/">COMMON NUMBERS</a>
+      <a href="/teerresults/dreamnumber/">DREAM NUMBER</a>
+      <a href="/teerresults/resultlist/">RESULT LIST</a>
+      <a href="/teerresults/contact/">CONTACT</a>
+    </div>
+
+    {% block content %}
+    {% endblock %}
+
+    <div class="footer">
+      <div id="div1">
+        <a href= "/teerresults/commonnumber/" class='footer_link'>COMMON NUMBERS</a>
+        <p>TEER COMMON NUMBERS are based on Calculation of previous teer result and target. Check out our Common Numbers. We provide Teer Common Numbers for Shillong Teer and Khanapara Teer in separate chart.</p>
+      </div>
+      <div id="div2">
+        <a href="/teerresults/resultlist/" class='footer_link'>PREVIOUS RESULTS</a>
+        <p>PREVIOUS TEER RESULTS are always important for regular Teer players. If you are regular player of Teer, you must have the record of previous teer results. Check Previous Teer Results at our website.</p>
+      </div>
+      <div id="div3">
+        <a href="/teerresults/dreamnumber/" class='footer_link'>DREAM NUMBERS</a>
+        <p>TEER players often use to check for Numbers that their NIGHT DREAM says. Your DREAM may have the TEER Target number. Check your DREAM NUMBERS at our website. You should know how to play with Dream Numbers</p>
+      </div>
+      <div id="div4">
+        <a href='#' class='footer_link'>TEER FORMULA</a>
+        <p>TEER GAME doesn't have any MAKING NUMBERS. TEER NUMBERS are based on mathematical FORMULA. You can find tips and idea about the Teer Number Formula at our website. We use to keep updated Teer Formula on regular Basis.</p>
+      </div>
+    </div>
+</body>
+</html>

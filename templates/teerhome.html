@@ -1,42 +1,49 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>TeerHome</title>
-    <style>
-        table, th, td {
-          border: 1px solid black;
-          border-collapse: collapse;
-        }
-        th, td {
-          padding: 5px;
-          text-align: center;    
-        }
-        </style>        
-</head>
-<body>
-    <h1>Teer Home HTML Page :: {{name}} {{last}}</h1>
-    teer_all -- {{ teer_all }}
-    <br>
-    teer_dct -- {{ teer_dct }}
-    <br>
-    teer_dct_dot_JTR -- {{ teer_dct.JTR }}
-    <br>
+{% extends 'teerbase.html' %}
+
+    {% block title %}TeerHome{% endblock %}
+
+
+    {% block content %}
+    <div align='center'>
+    <h3>Welcome to <strong>TEER RESULTS</strong> Website.</h3>
+    <h3>{% now "d-m-Y" %} </h3>
+    <h4><strong>TEER RESULTS</strong></h4>
     {% for tall in teer_all %}
-      <table style="width:100%">
-          <tr>
-            <th colspan="2">{{tall.get_title_display}}</th>
-          </tr>
-          <tr>
-            <td>{{tall.param1_title}}({{tall.param1_time}})</td>
-            <td>{{tall.param2_title}}({{tall.param2_time}})</td>
-          </tr>
-          <tr>
-            <td>{{tall.param1_data}}</td>
-            <td>{{tall.param2_data}}</td>
-          </tr> 
-        </table><br>
+    <table style="width:75%">
+      <tr>
+        <th colspan="2">{{tall.get_title_display}}</th>
+      </tr>
+      <tr>
+        <td>{{tall.param1_title}}({{tall.param1_time}})</td>
+        <td>{{tall.param2_title}}({{tall.param2_time}})</td>
+      </tr>
+      <tr>
+        <td>{{tall.param1_data}}</td>
+        <td>{{tall.param2_data}}</td>
+      </tr> 
+    </table>
+      {% if tall.title == 'JTR' %}
+        <div> 
+            <img src='/static/images/hotdog.png' alt="Hotdog">
+        </div>
+      {% elif tall.title == 'KTR'%}
+        <div><h3>There might be some delay on updating Khanapara Teer Result<br>
+          Khanapara Teer Result declaration time varies day to day.
+        </h3></div>
+        <div> 
+          <img src='/static/images/boy.jpeg' alt="Boy" height="150" width="500">
+      </div>
+      {% elif tall.title == 'STR'%}
+        <div><h3>Shillong  Teer Result declaration time varies day to day.</h3></div><br>
+      {% elif tall.title == 'JLTR'%}
+        <br><div> 
+        <img src='/static/images/sun.jpeg' alt="sun" height= '130' width='500'>
+        </div><br>
+      {% elif tall.title == 'NTR'%}
+        <br><div><h5>TEER RESULT UPDATE TIME IS SUBJECTED TO AVAILABILITY </h5> 
+        <span>Contact your nearest Teer Counter or Teer Agent for accuracy of Result.</span>
+        </div><br>
+      {% endif %}
     {% endfor %} 
-</body>
-</html>
+    </div>
+    {% endblock %}

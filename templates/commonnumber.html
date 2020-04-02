@@ -1,0 +1,48 @@
+{% extends 'teerbase.html' %}
+
+    {% block title %}Common Number{% endblock %}
+
+    {% block content%}
+    <div align='center'>
+        <h3>TEER COMMON NUMBERS</h3>
+        <h4>TEER is a traditional game of Meghalaya</h4>
+        <h2>SHILLONG TEER COMMON NUMBER</h2>
+        <table style="width:75%">
+           <tr> <th colspan="3">SHILLONG TEER COMMON NUMBER</th> </tr>
+                    <tr>
+                        <th>Direct</th>
+                        <th>HOUSE</th>
+                        <th>ENDING</th>
+                    </tr>
+                    {% for comstr in common_str %}
+                        <tr>
+                        <td>{{comstr.direct}}</td>
+                        <td>{{comstr.house}}</td>
+                        <td>{{comstr.ending}}</td>
+                        </tr>
+                    {% endfor %}
+        </table>
+
+        <div>Teer Hit Numbers by Teer Champions..... wait..... {% now "jS F Y H:i" %} </div><br>    
+        <div> 
+            <img src='/static/images/boy.jpeg' alt="Boy" height="150" width="500">
+        </div><br>
+
+        <table style="width:75%">
+
+                <tr> <th colspan="3">KHANAPARA TEER COMMON NUMBER</th> </tr>
+                <tr>
+                    <th>Direct</th>
+                    <th>HOUSE</th>
+                    <th>ENDING</th>
+
+                    {% for comktr in common_ktr %}
+                        <tr>
+                        <td>{{comktr.direct}}</td>
+                        <td>{{comktr.house}}</td>
+                        <td>{{comktr.ending}}</td>
+                        </tr>
+                    {% endfor %}
+    
+        </table>
+    {% endblock %}

@@ -1,0 +1,30 @@
+{% extends 'teerbase.html' %}
+
+    {% block title %}Dream Number{% endblock %}
+
+
+    {% block content %}
+        <div align='center'>
+            <h3>TEER DREAM NUMBERS</h3>
+            <div> 
+                <img src='/static/images/boy.jpeg' alt="Boy" height="150" width="500">
+            </div>
+            <h2>Find Teer Target Numbers with your Last Night Dream</h2>
+            <br><table style="width:75%">
+        <tr>
+            <th>DREAM</th>
+            <th>NUMBERS</th>
+            <th>HOUSE</th>
+            <th>ENDING</th>
+        </tr>
+        {% for dall in dream_all %}
+      <tr>
+        <td>{{dall.dream}}</td>
+        <td>{{dall.num}}</td>
+        <td>{{dall.house}}</td>
+        <td>{{dall.ending}}</td>
+      </tr>
+        {% endfor %}
+        </table>
+    </div>
+    {% endblock %}
